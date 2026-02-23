@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NERO Travels | Sri Lanka Cab • Car Rental • Tours</title>
+  <meta name="description" content="NERO Travels — Island-wide cab service, airport transfers, car rentals and tours in Sri Lanka. Book instantly on WhatsApp." />
+
+  <style>
+    :root{
+      /* Brand (logo colors) */
+      --black:#070708;
+      --black2:#0b0b0d;
+      --white:#ffffff;
+      --red:#c90f0f;
+      --gold:#f1c15c;
+
+      --bg:#ffffff;
+      --text:#0f0f10;
+      --muted:#5a5a5a;
+      --line: rgba(0,0,0,.08);
+
+      /* Widget dark */
+      --wbg:#0a0a0c;
+      --wbg2:#101015;
+      --wtext:#f4f4f6;
+      --wmuted: rgba(255,255,255,.72);
+      --wline: rgba(255,255,255,.10);
+
+      --shadow: 0 18px 45px rgba(0,0,0,.12);
+      --shadowStrong: 0 26px 70px rgba(0,0,0,.18);
+
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 10% -10%, rgba(201,15,15,.12), transparent 55%),
+        radial-gradient(900px 520px at 92% 0%, rgba(241,193,92,.14), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
+
+    /* =========================
+       TOP BAR
+    ========================= */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index: 80;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,.90);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding: 12px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width: 260px;}
+    .brand img{
+      height:46px; width:auto; display:block;
+      border-radius: 14px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+      background:#fff;
+      padding:6px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .brand .title{font-weight:1000; letter-spacing:.2px; line-height:1.05;}
+    .brand .sub{color:var(--muted); font-size:12px; font-weight:850}
+
+    .nav{
+      display:flex; gap:6px; align-items:center; justify-content:center;
+      flex:1; flex-wrap:wrap;
+    }
+    .nav a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 13px;
+      color:#111;
+      opacity:.78;
+    }
+    .nav a:hover{background: rgba(0,0,0,.05); opacity:1;}
+
+    .actions{display:flex; gap:10px; align-items:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.92);
+      font-weight: 1000;
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      box-shadow: 0 12px 26px rgba(0,0,0,.08);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.12);
+      filter:saturate(1.05);
+    }
+    .btn-red{
+      background: linear-gradient(135deg, rgba(201,15,15,1), rgba(201,15,15,.72));
+      border-color: rgba(201,15,15,.25);
+      color:#fff;
+      box-shadow: 0 20px 44px rgba(201,15,15,.18);
+    }
+    .btn-gold{
+      background: linear-gradient(135deg, rgba(241,193,92,1), rgba(241,193,92,.72));
+      border-color: rgba(241,193,92,.25);
+      color:#1a1a1a;
+      box-shadow: 0 20px 44px rgba(241,193,92,.18);
+    }
+    .btn-dark{
+      background: linear-gradient(135deg, rgba(10,10,12,1), rgba(16,16,21,1));
+      color:#fff;
+      border-color: rgba(255,255,255,.12);
+      box-shadow: 0 22px 55px rgba(0,0,0,.25);
+    }
+    @media (max-width: 980px){
+      .actions{display:none;}
+    }
+
+    /* =========================
+       HERO + PARTICLES + SLOW ZOOM
+    ========================= */
+
+    /* High-quality vehicle hero image (online).
+       If you want LOCAL image later:
+       - download a car photo and rename to hero.jpg
+       - replace the url(...) below with: url("hero.jpg")
+    */
+    :root{
+      --heroImg: url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=2200&q=80");
+      --aboutImg: url("https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=2200&q=80");
+    }
+
+    .hero{padding: 24px 0 18px;}
+    .hero-shell{
+      position: relative;
+      border-radius: 28px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadowStrong);
+      background: #0b0b0d;
+    }
+
+    /* Top royal line */
+    .hero-shell::before{
+      content:"";
+      position:absolute; top:0; left:0; right:0;
+      height:4px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+      opacity:.95;
+      z-index:5;
+    }
+
+    /* Slow zoom background layer */
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(241,193,92,.16), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(201,15,15,.18), transparent 55%),
+        linear-gradient(90deg, rgba(255,255,255,.68), rgba(255,255,255,.18)),
+        var(--heroImg);
+      background-size: auto, auto, auto, cover;
+      background-position: center;
+      filter: contrast(1.06) saturate(1.08);
+      transform: scale(1.06);
+      animation: slowZoom 18s ease-in-out infinite alternate;
+    }
+
+    /* Extra vignette for luxury */
+    .hero-vignette{
+      position:absolute; inset:0;
+      z-index:2;
+      background:
+        radial-gradient(900px 520px at 15% 0%, rgba(0,0,0,.35), transparent 55%),
+        radial-gradient(900px 520px at 90% 0%, rgba(0,0,0,.35), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.05));
+      pointer-events:none;
+    }
+
+    /* Gold particles canvas */
+    #goldParticles{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      pointer-events:none;
+      opacity: .85;
+      mix-blend-mode: screen;
+    }
+
+    /* Content */
+    .hero-inner{
+      position: relative;
+      z-index:4;
+      padding: 26px 18px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr;}
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.90);
+      font-weight: 950;
+      font-size: 12px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+    }
+    .dot{
+      width:8px; height:8px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(241,193,92,.7);
+    }
+
+    h1{
+      margin: 12px 0 10px;
+      font-size: 46px;
+      letter-spacing: -1px;
+      line-height: 1.03;
+      color:#0b0b0c;
+      text-shadow: 0 16px 40px rgba(0,0,0,.18);
+    }
+    .hero-desc{
+      margin:0;
+      color: rgba(0,0,0,.80);
+      line-height: 1.6;
+      max-width: 62ch;
+      font-size: 16px;
+      font-weight: 850;
+      text-shadow: 0 10px 24px rgba(0,0,0,.10);
+    }
+
+    .trust-row{
+      margin-top: 16px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .trust{
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(255,255,255,.25);
+      font-weight: 950;
+      font-size: 13px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+    }
+
+    /* =========================
+       BLACK BOOKING WIDGET
+    ========================= */
+    .book-card{
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(7,7,8,1), rgba(16,16,21,1));
+      color: var(--wtext);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 30px 85px rgba(0,0,0,.35);
+      overflow:hidden;
+      position: relative;
+    }
+    .book-card::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 260px at 15% 0%, rgba(241,193,92,.18), transparent 60%),
+        radial-gradient(520px 260px at 95% 0%, rgba(201,15,15,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .book-top{
+      position:relative;
+      z-index:2;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .book-title{
+      font-weight: 1000;
+      letter-spacing: .2px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .book-title::before{
+      content:"";
+      width:10px; height:10px; border-radius:999px;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(241,193,92,.55);
+    }
+
+    .tabs{display:flex; gap:8px; flex-wrap:wrap;}
+    .tab{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
+      font-weight: 1000;
+      font-size: 12px;
+      cursor:pointer;
+      transition: transform .12s ease;
+    }
+    .tab:hover{transform: translateY(-1px);}
+    .tab.active{
+      background: linear-gradient(135deg, rgba(241,193,92,1), rgba(241,193,92,.72));
+      color:#101012;
+      border-color: rgba(241,193,92,.25);
+      box-shadow: 0 18px 36px rgba(241,193,92,.18);
+    }
+
+    .book-body{position:relative; z-index:2; padding: 14px;}
+    .vehicle-row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 980px){ .vehicle-row{grid-template-columns: repeat(2, 1fr);} }
+
+    .veh{
+      padding: 10px 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+      display:flex; gap:10px; align-items:center;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      min-height: 64px;
+    }
+    .veh:hover{transform: translateY(-1px); box-shadow: 0 20px 50px rgba(0,0,0,.35);}
+    .veh.active{
+      border-color: rgba(241,193,92,.55);
+      box-shadow: 0 0 0 2px rgba(241,193,92,.14) inset, 0 22px 55px rgba(0,0,0,.38);
+      background: rgba(241,193,92,.08);
+    }
+    .veh .ico{
+      width: 36px; height: 36px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(201,15,15,.14);
+      border: 1px solid rgba(201,15,15,.22);
+      font-weight: 1000;
+    }
+    .veh b{display:block; font-size: 12px; color: rgba(255,255,255,.92);}
+    .veh span{display:block; font-size: 11px; color: rgba(255,255,255,.70); margin-top: 3px; font-weight:900;}
+
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 560px){ .form-grid{grid-template-columns:1fr;} }
+
+    label{
+      display:block;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      font-weight: 1000;
+      margin: 0 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      outline:none;
+      font-weight: 850;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(241,193,92,.35);
+      box-shadow: 0 0 0 3px rgba(241,193,92,.10);
+    }
+    input::placeholder, textarea::placeholder{color: rgba(255,255,255,.45);}
+    textarea{min-height: 86px; resize: vertical;}
+    option{color:#111;}
+
+    .route-row{margin-top: 10px; display:flex; gap:8px; flex-wrap:wrap;}
+    .route-chip{
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
+      font-weight: 950;
+      font-size: 12px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .route-chip:hover{
+      transform: translateY(-1px);
+      background: rgba(241,193,92,.12);
+      border-color: rgba(241,193,92,.25);
+    }
+
+    .book-footer{
+      position:relative;
+      z-index:2;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      background: rgba(255,255,255,.03);
+    }
+    .est{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      font-weight: 1000;
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+    }
+    .chip{
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .chip.gold{
+      background: rgba(241,193,92,.12);
+      border-color: rgba(241,193,92,.25);
+      color: rgba(255,255,255,.92);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+    section{padding: 26px 0;}
+    .section-head{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:12px; flex-wrap:wrap;
+      margin: 0 0 14px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 32px;
+      letter-spacing: -0.6px;
+      color:#0b0b0c;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .section-head h2::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width: 120px; height: 5px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-weight: 850;
+      line-height: 1.4;
+      max-width: 64ch;
+    }
+
+    .card{
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){ .about{grid-template-columns:1fr;} }
+
+    /* ✅ vehicle image instead of sigiriya */
+    .about-img{
+      min-height: 320px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.22), rgba(0,0,0,.08)),
+        var(--aboutImg);
+      background-position:center;
+      background-size: cover;
+      filter: contrast(1.05) saturate(1.06);
+    }
+
+    .about-txt{padding: 18px;}
+    .about-txt h3{
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -0.6px;
+      line-height: 1.05;
+      color:#0b0b0c;
+    }
+    .about-txt p{
+      margin: 0;
+      color: rgba(0,0,0,.72);
+      line-height: 1.6;
+      font-weight: 850;
+    }
+    .stats{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 560px){ .stats{grid-template-columns:1fr;} }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 18px;
+      background:
+        radial-gradient(260px 160px at 0% 0%, rgba(241,193,92,.16), transparent 60%),
+        radial-gradient(260px 160px at 100% 0%, rgba(201,15,15,.12), transparent 60%),
+        rgba(255,255,255,.98);
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 12px 24px rgba(0,0,0,.06);
+    }
+    .stat b{display:block; font-size: 18px; color:#0b0b0c;}
+    .stat span{display:block; margin-top: 6px; color: var(--muted); font-weight: 900; font-size: 12px;}
+
+    /* Services */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 560px){ .grid{grid-template-columns: 1fr;} }
+
+    .svc{
+      padding: 16px;
+      border-radius: 24px;
+      background:
+        radial-gradient(240px 160px at 0% 0%, rgba(241,193,92,.12), transparent 60%),
+        radial-gradient(240px 160px at 100% 0%, rgba(201,15,15,.10), transparent 60%),
+        #ffffff;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
+      position: relative;
+      overflow:hidden;
+    }
+    .svc::before{
+      content:"";
+      position:absolute; left:0; top:0; right:0;
+      height:5px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+      opacity:.95;
+    }
+    .svc:hover{transform: translateY(-2px); box-shadow: 0 26px 70px rgba(0,0,0,.14);}
+    .svc .icon{
+      width: 46px; height: 46px;
+      border-radius: 18px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(241,193,92,.22);
+      border: 1px solid rgba(241,193,92,.28);
+      font-size: 20px;
+      font-weight: 1000;
+      margin: 6px 0 10px;
+    }
+    .svc h4{margin:0 0 6px; font-size: 16px; color:#0b0b0c; font-weight:1000;}
+    .svc p{margin:0; color: var(--muted); line-height: 1.5; font-size: 13.5px; font-weight:850;}
+    .svc .mini{margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap;}
+
+    /* Fleet */
+    .fleet{background: rgba(0,0,0,.03); border-top: 1px solid rgba(0,0,0,.06); border-bottom: 1px solid rgba(0,0,0,.06);}
+    .fleet-grid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 1100px){ .fleet-grid{grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 680px){ .fleet-grid{grid-template-columns: 1fr;} }
+
+    .car{
+      border-radius: 24px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      transition: transform .12s ease, box-shadow .12s ease;
+      cursor:pointer;
+    }
+    .car:hover{transform: translateY(-2px); box-shadow: 0 26px 70px rgba(0,0,0,.16);}
+    .car .img{
+      height: 150px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.25), rgba(0,0,0,.08)),
+        url("https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1600&q=70") center/cover no-repeat;
+    }
+    .car .body{padding: 14px;}
+    .car h4{margin:0 0 6px; font-size: 16px; color:#0b0b0c; font-weight:1000;}
+    .car .meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .car .meta span{
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.95);
+    }
+    .car .price{
+      margin-top:auto;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      color: rgba(0,0,0,.80);
+      font-weight: 1000;
+      font-size: 13px;
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      position: fixed; inset:0;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      z-index: 200;
+      padding: 16px;
+    }
+    .modal{
+      width:min(860px, 100%);
+      border-radius: 24px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(7,7,8,1), rgba(16,16,21,1));
+      color: var(--wtext);
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    }
+    .modal-top{
+      padding: 14px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modal-top b{font-size: 14px; letter-spacing:.2px;}
+    .xbtn{
+      width: 40px; height: 40px; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:#fff; cursor:pointer; font-weight:1000;
+    }
+    .modal-body{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+      padding: 14px;
+    }
+    @media (max-width: 860px){ .modal-body{grid-template-columns:1fr;} }
+    .modal-photo{
+      border-radius: 18px;
+      min-height: 280px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.28), rgba(0,0,0,.10)),
+        url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=70") center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .modal-info{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+    }
+    .modal-info h3{margin:0 0 8px; font-size: 22px;}
+    .modal-info p{margin:0; color: rgba(255,255,255,.74); line-height: 1.55; font-weight: 850;}
+    .modal-badges{display:flex; gap:8px; flex-wrap:wrap; margin-top: 12px;}
+    .mbadge{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(255,255,255,.85);
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){ .contact{grid-template-columns:1fr;} }
+
+    .contact-left{
+      padding: 16px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(241,193,92,1), rgba(241,193,92,.72));
+      color:#161616;
+      border: 1px solid rgba(241,193,92,.35);
+      box-shadow: 0 22px 55px rgba(241,193,92,.18);
+    }
+    .contact-left h3{margin:0 0 10px; font-size: 22px; font-weight:1000;}
+    .contact-item{
+      display:flex; gap:10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.50);
+      border: 1px solid rgba(0,0,0,.08);
+      margin-top: 10px;
+      font-weight: 950;
+    }
+    .contact-item small{display:block; font-weight: 850; opacity: .75; margin-top: 4px;}
+    .contact-right{
+      padding: 16px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow);
+    }
+    .map{width:100%; height: 320px; border:0; border-radius: 18px;}
+
+    /* Footer */
+    footer{
+      padding: 24px 0 30px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .footer-grid{grid-template-columns: 1fr 1fr;} }
+    @media (max-width: 560px){ .footer-grid{grid-template-columns: 1fr;} }
+    .footer-card{
+      padding: 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #ffffff;
+      box-shadow: 0 14px 28px rgba(0,0,0,.07);
+    }
+    .footer-card h4{margin:0 0 10px; color:#0b0b0c; font-weight:1000;}
+    .footer-card a{display:block; color: var(--muted); font-weight: 900; padding: 6px 0;}
+    .footer-card a:hover{color:#0b0b0c;}
+
+    /* QR */
+    #qrcode{
+      background:#fff;
+      padding: 10px;
+      border-radius: 18px;
+      width:max-content;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 14px 28px rgba(0,0,0,.08);
+    }
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 100;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display:flex; align-items:center; justify-content:center;
+      background: linear-gradient(135deg, rgba(201,15,15,1), rgba(201,15,15,.72));
+      border: 1px solid rgba(201,15,15,.35);
+      box-shadow: 0 22px 55px rgba(201,15,15,.18);
+      font-size: 22px;
+      font-weight: 1000;
+      color:#fff;
+      transition: transform .12s ease;
+    }
+    .wa-float:hover{transform: translateY(-2px);}
+
+    /* Online badge */
+    .online{
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 100;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(241,193,92,.92);
+      color:#141414;
+      border: 1px solid rgba(241,193,92,.35);
+      font-weight: 1000;
+      font-size: 13px;
+      display:flex; gap:10px; align-items:center;
+      box-shadow: 0 14px 35px rgba(0,0,0,.10);
+    }
+    .online .b{width:10px; height:10px; border-radius: 99px; background: #12c76a;}
+
+    /* Animations */
+    @keyframes slowZoom{
+      0%{transform: scale(1.06) translate3d(0,0,0);}
+      100%{transform: scale(1.16) translate3d(-1.5%, -1%, 0);}
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce){
+      .hero-bg{animation:none;}
+      .tab:hover,.veh:hover,.route-chip:hover,.btn:hover,.wa-float:hover{transform:none;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="brand">
+          <img src="logo.png" alt="NERO Travels logo">
+          <div>
+            <div class="title">NERO Travels</div>
+            <div class="sub">Sri Lanka • Royal Cab Service • Car Rental • Tours</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#book">Book</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#fleet">Fleet</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" id="callTop" href="tel:+94XXXXXXXXX">Call us now</a>
+          <a class="btn btn-gold" href="#contact">Get Quote</a>
+          <a class="btn btn-red" id="waTop" href="https://wa.me/94XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO + BOOKING -->
+  <div class="hero" id="book">
+    <div class="container">
+      <div class="hero-shell">
+        <div class="hero-bg"></div>
+        <canvas id="goldParticles"></canvas>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-inner">
+          <div>
+            <span class="pill"><span class="dot"></span> Instant booking • Island-wide cab service • Royal support</span>
+            <h1>Start your Sri Lanka journey with NERO.</h1>
+            <p class="hero-desc">
+              Book a cab anywhere in Sri Lanka in seconds. Airport transfers, city rides, long-distance trips,
+              self-drive car rentals, and private tours — premium service in red, black & gold.
+            </p>
+
+            <div class="trust-row">
+              <div class="trust">✅ 24/7 WhatsApp Support</div>
+              <div class="trust">✅ Clean A/C Vehicles</div>
+              <div class="trust">✅ Transparent Pricing</div>
+              <div class="trust">✅ English + Sinhala Support</div>
+            </div>
+          </div>
+
+          <!-- BLACK WIDGET -->
+          <div class="book-card">
+            <div class="book-top">
+              <div class="book-title">Instant Booking</div>
+              <div class="tabs" role="tablist">
+                <button class="tab active" data-tab="cab" type="button">Cab Service</button>
+                <button class="tab" data-tab="rental" type="button">Car Rental</button>
+                <button class="tab" data-tab="tour" type="button">Tours</button>
+              </div>
+            </div>
+
+            <div class="book-body">
+              <div id="vehicleTitle" style="font-weight:1000; margin-bottom:8px;">Select Your Vehicle</div>
+
+              <div class="vehicle-row">
+                <div class="veh active" data-veh="Budget Car" data-cap="3" data-rate="120">
+                  <div class="ico">🚗</div><div><b>Budget Car</b><span>3 passengers</span></div>
+                </div>
+                <div class="veh" data-veh="Mini Car" data-cap="3" data-rate="130">
+                  <div class="ico">🚙</div><div><b>Mini Car</b><span>3 passengers</span></div>
+                </div>
+                <div class="veh" data-veh="Sedan" data-cap="4" data-rate="160">
+                  <div class="ico">🚘</div><div><b>Sedan</b><span>4 passengers</span></div>
+                </div>
+                <div class="veh" data-veh="Van" data-cap="10" data-rate="240">
+                  <div class="ico">🚌</div><div><b>Van</b><span>10 passengers</span></div>
+                </div>
+              </div>
+
+              <div style="font-weight:1000; margin-top:6px;">Popular routes</div>
+              <div class="route-row" id="routes">
+                <button class="route-chip" data-from="Airport (CMB)" data-to="Negombo" data-km="12">Airport → Negombo</button>
+                <button class="route-chip" data-from="Airport (CMB)" data-to="Colombo" data-km="35">Airport → Colombo</button>
+                <button class="route-chip" data-from="Colombo" data-to="Kandy" data-km="115">Colombo → Kandy</button>
+                <button class="route-chip" data-from="Kandy" data-to="Sigiriya" data-km="90">Kandy → Sigiriya</button>
+                <button class="route-chip" data-from="Colombo" data-to="Galle" data-km="130">Colombo → Galle</button>
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label>Pickup Location</label>
+                  <input id="pickup" placeholder="e.g., Airport (CMB) / Colombo" />
+                </div>
+                <div>
+                  <label>Drop Location</label>
+                  <input id="drop" placeholder="e.g., Negombo / Kandy / Ella / Galle" />
+                </div>
+
+                <div>
+                  <label>Pickup Date & Time</label>
+                  <input id="datetime" type="datetime-local" />
+                </div>
+                <div>
+                  <label>Your Name</label>
+                  <input id="name" placeholder="Name" />
+                </div>
+
+                <div>
+                  <label>Mobile / WhatsApp</label>
+                  <input id="mobile" placeholder="+94 77 XXXXXXX" />
+                </div>
+                <div>
+                  <label>Passengers</label>
+                  <select id="pax">
+                    <option>1</option><option>2</option><option>3</option><option>4</option>
+                    <option>5</option><option>6</option><option>7</option><option>8+</option>
+                  </select>
+                </div>
+
+                <div style="grid-column: 1 / -1;">
+                  <label>Notes (optional)</label>
+                  <textarea id="notes" placeholder="Luggage, child seat request, flight number, special needs..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="book-footer">
+              <div class="est">
+                <span class="chip" id="tripChip">Mode: Cab Service</span>
+                <span class="chip" id="vehChip">Vehicle: Budget Car</span>
+                <span class="chip gold" id="estChip">Est: Select a route</span>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-dark" id="copyDetails" type="button">Copy details</button>
+                <button class="btn btn-red" id="bookNow" type="button">Book now</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>Royal comfort. Real reliability.</h2>
+        <p>Premium service for tourists, families, and business travelers — anywhere in Sri Lanka.</p>
+      </div>
+
+      <div class="about">
+        <div class="card about-img"></div>
+
+        <div class="card about-txt">
+          <h3>Fast booking. Clean vehicles. Trusted service.</h3>
+          <p>
+            NERO Travels provides island-wide cab service, airport transfers, car rentals, and private tours.
+            We focus on comfort, safety, and quick response — with English + Sinhala support.
+          </p>
+
+          <div class="stats">
+            <div class="stat"><b>24/7</b><span>WhatsApp Support</span></div>
+            <div class="stat"><b>Fast</b><span>Airport pickups</span></div>
+            <div class="stat"><b>Island</b><span>Service across Sri Lanka</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Explore our services</h2>
+        <p>Cab rides, rentals, tours, events — built for speed and comfort.</p>
+      </div>
+
+      <div class="grid">
+        <div class="svc">
+          <div class="icon">🚕</div>
+          <h4>Cab Service (Island-wide)</h4>
+          <p>Instant cab booking for any city: Colombo, Kandy, Negombo, Galle, Ella, and more.</p>
+          <div class="mini"><a class="btn btn-red" href="#book">Book Instant</a></div>
+        </div>
+
+        <div class="svc">
+          <div class="icon">✈️</div>
+          <h4>Airport Pickup & Drop</h4>
+          <p>Meet & greet, luggage help, clean A/C vehicles. Perfect for tourists and families.</p>
+          <div class="mini"><a class="btn" href="#book">Choose Route</a></div>
+        </div>
+
+        <div class="svc">
+          <div class="icon">🚗</div>
+          <h4>Car Rental</h4>
+          <p>Daily & weekly rentals. Great for exploring Sri Lanka independently.</p>
+          <div class="mini"><a class="btn btn-gold" href="#contact">Get Quote</a></div>
+        </div>
+
+        <div class="svc">
+          <div class="icon">🗺️</div>
+          <h4>Private Tours</h4>
+          <p>Sigiriya • Kandy • Ella • Yala • Mirissa • Galle — curated routes & custom plans.</p>
+          <div class="mini"><a class="btn btn-red" href="#contact">Plan Tour</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section id="fleet" class="fleet">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our fleet</h2>
+        <p>Tap a vehicle to view details.</p>
+      </div>
+
+      <div class="fleet-grid" id="fleetGrid">
+        <div class="car" data-name="Budget Car" data-desc="Perfect for city rides and budget-friendly transfers." data-b1="A/C" data-b2="3 pax" data-b3="Best value">
+          <div class="img"></div>
+          <div class="body">
+            <h4>Budget Car</h4>
+            <div class="meta"><span>3 passengers</span><span>2–3 luggage</span></div>
+            <div class="price"><span>Rate/km: LKR 120</span><span style="font-weight:1000;">Tap →</span></div>
+          </div>
+        </div>
+
+        <div class="car" data-name="Mini Car" data-desc="Easy in traffic. Great for short city trips." data-b1="Compact" data-b2="3 pax" data-b3="Low fuel">
+          <div class="img"></div>
+          <div class="body">
+            <h4>Mini Car</h4>
+            <div class="meta"><span>3 passengers</span><span>2 luggage</span></div>
+            <div class="price"><span>Rate/km: LKR 130</span><span style="font-weight:1000;">Tap →</span></div>
+          </div>
+        </div>
+
+        <div class="car" data-name="Sedan" data-desc="More space, premium comfort for long-distance travel." data-b1="Comfort+" data-b2="4 pax" data-b3="Smooth ride">
+          <div class="img"></div>
+          <div class="body">
+            <h4>Sedan</h4>
+            <div class="meta"><span>4 passengers</span><span>3 luggage</span></div>
+            <div class="price"><span>Rate/km: LKR 160</span><span style="font-weight:1000;">Tap →</span></div>
+          </div>
+        </div>
+
+        <div class="car" data-name="Van" data-desc="Best for families and groups. Extra luggage space." data-b1="Group" data-b2="10 pax" data-b3="Big luggage">
+          <div class="img"></div>
+          <div class="body">
+            <h4>Van</h4>
+            <div class="meta"><span>10 passengers</span><span>5–6 luggage</span></div>
+            <div class="price"><span>Rate/km: LKR 240</span><span style="font-weight:1000;">Tap →</span></div>
+          </div>
+        </div>
+
+        <div class="car" data-name="Luxury" data-desc="VIP comfort for premium travel and special occasions." data-b1="VIP" data-b2="Premium" data-b3="Top class">
+          <div class="img"></div>
+          <div class="body">
+            <h4>Luxury</h4>
+            <div class="meta"><span>Premium</span><span>Best comfort</span></div>
+            <div class="price"><span>Quote</span><span style="font-weight:1000;">Tap →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact us</h2>
+        <p>Bookings, support, and business inquiries — fast response.</p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-left">
+          <h3>Contact information</h3>
+
+          <div class="contact-item">
+            <div style="font-size:18px;">📞</div>
+            <div>
+              Hotline<br>
+              <a id="hotlineA" href="tel:+94XXXXXXXXX">+94 XX XXX XXXX</a>
+              <small>Response immediately</small>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div style="font-size:18px;">💬</div>
+            <div>
+              WhatsApp<br>
+              <a id="waContact" href="https://wa.me/94XXXXXXXXX" target="_blank" rel="noopener">+94 XX XXX XXXX</a>
+              <small>Instant booking support</small>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div style="font-size:18px;">📍</div>
+            <div>
+              Head office<br>
+              <span id="addressText">Negombo / Colombo (Sri Lanka)</span>
+              <small>Edit to your real address</small>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div style="font-size:18px;">✉️</div>
+            <div>
+              Email<br>
+              <a id="emailA" href="mailto:nerotravels@gmail.com">nerotravels@gmail.com</a>
+              <small>Response within 2 hours</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div style="font-weight:1000; color:#111;">Map & QR Code</div>
+            <div id="qrcode"></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <iframe
+              class="map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Negombo%20Sri%20Lanka&output=embed">
+            </iframe>
+          </div>
+
+          <div style="margin-top:12px; color: var(--muted); font-weight:900; line-height:1.45;">
+            After you publish your site (Netlify), replace WEBSITE_URL in the code and your QR becomes your real website QR.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-card">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img src="logo.png" alt="NERO logo" style="height:38px; border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,.10); background:#fff; padding:6px;">
+            <div>
+              <div style="font-weight:1000; color:#111;">NERO Travels</div>
+              <div style="color:var(--muted); font-weight:900; font-size:12px;">Royal cab service • Car rental • Tours</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; color: var(--muted); line-height:1.55; font-weight:850;">
+            Fast bookings on WhatsApp. Clean vehicles. Trusted service across Sri Lanka.
+          </div>
+        </div>
+
+        <div class="footer-card">
+          <h4>Services</h4>
+          <a href="#book">Instant booking</a>
+          <a href="#services">Airport transfers</a>
+          <a href="#services">Car rental</a>
+          <a href="#services">Tours</a>
+        </div>
+
+        <div class="footer-card">
+          <h4>Quick Links</h4>
+          <a href="#about">About</a>
+          <a href="#fleet">Fleet</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-card">
+          <h4>Community</h4>
+          <a href="#">Facebook (add link)</a>
+          <a href="#">Instagram (add link)</a>
+          <a href="#">TikTok (add link)</a>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; text-align:center; color: var(--muted); font-weight:900;">
+        © <span id="year"></span> NERO Travels. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <a class="wa-float" id="waFloat" href="https://wa.me/94XXXXXXXXX" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+  <div class="online"><span class="b"></span> Online</div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-top">
+        <b id="mTitle">Vehicle</b>
+        <button class="xbtn" id="mClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-photo" id="mPhoto"></div>
+        <div class="modal-info">
+          <h3 id="mName" style="margin-top:0;">Vehicle Name</h3>
+          <p id="mDesc">Vehicle description</p>
+          <div class="modal-badges">
+            <span class="mbadge" id="mb1">A/C</span>
+            <span class="mbadge" id="mb2">Seats</span>
+            <span class="mbadge" id="mb3">Feature</span>
+          </div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-gold" href="#book" id="mSelect">Select & Book</a>
+            <button class="btn btn-dark" id="mCopy" type="button">Copy vehicle name</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    // =========================
+    // ✅ EDIT THESE
+    // =========================
+    const WHATSAPP_NUMBER = "94XXXXXXXXX"; // example: 94771234567 (no +, no spaces)
+    const HOTLINE_NUMBER  = "+94 XX XXX XXXX";
+    const EMAIL_ADDRESS   = "nerotravels@gmail.com";
+    const ADDRESS_TEXT    = "Negombo / Colombo (Sri Lanka)";
+    const WEBSITE_URL     = "https://YOUR-NETLIFY-LINK.netlify.app"; // update after publishing
+
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Contact links
+    document.getElementById("hotlineA").textContent = HOTLINE_NUMBER;
+    document.getElementById("hotlineA").href = "tel:" + HOTLINE_NUMBER.replace(/\s/g,'');
+
+    document.getElementById("emailA").textContent = EMAIL_ADDRESS;
+    document.getElementById("emailA").href = "mailto:" + EMAIL_ADDRESS;
+
+    document.getElementById("addressText").textContent = ADDRESS_TEXT;
+
+    // WhatsApp links
+    document.getElementById("waTop").href = `https://wa.me/${WHATSAPP_NUMBER}`;
+    document.getElementById("waContact").href = `https://wa.me/${WHATSAPP_NUMBER}`;
+    document.getElementById("waContact").textContent = HOTLINE_NUMBER;
+    document.getElementById("waFloat").href = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+    // QR code
+    new QRCode(document.getElementById("qrcode"), { text: WEBSITE_URL, width: 140, height: 140 });
+
+    // Booking mode tabs
+    let mode = "cab";
+    const tripChip = document.getElementById("tripChip");
+    const estChip  = document.getElementById("estChip");
+    const vehicleTitle = document.getElementById("vehicleTitle");
+
+    function setMode(next){
+      mode = next;
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.tab === mode));
+      if(mode === "cab"){ tripChip.textContent = "Mode: Cab Service"; vehicleTitle.textContent = "Select Your Vehicle"; }
+      else if(mode === "rental"){ tripChip.textContent = "Mode: Car Rental"; vehicleTitle.textContent = "Select Rental Vehicle"; }
+      else { tripChip.textContent = "Mode: Tours"; vehicleTitle.textContent = "Select Tour Vehicle"; }
+      estChip.textContent = "Est: Select a route";
+    }
+    document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => setMode(t.dataset.tab)));
+
+    // Vehicle selection
+    let selectedVehicle = "Budget Car";
+    let selectedRate = 120;
+    const vehChip = document.getElementById("vehChip");
+
+    function setVehicle(el){
+      document.querySelectorAll(".veh").forEach(v => v.classList.remove("active"));
+      el.classList.add("active");
+      selectedVehicle = el.dataset.veh;
+      selectedRate = Number(el.dataset.rate || 0);
+      vehChip.textContent = `Vehicle: ${selectedVehicle}`;
+      if(window.__selectedKm){ updateEstimate(window.__selectedKm); }
+    }
+    document.querySelectorAll(".veh").forEach(v => v.addEventListener("click", () => setVehicle(v)));
+
+    // Popular routes -> fill & estimate
+    const pickup = document.getElementById("pickup");
+    const drop = document.getElementById("drop");
+    const datetime = document.getElementById("datetime");
+
+    function setNowPlusMinutes(mins){
+      const d = new Date(Date.now() + mins*60000);
+      const pad = n => String(n).padStart(2,'0');
+      datetime.value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    function formatLKR(n){
+      try { return "LKR " + n.toLocaleString("en-US"); } catch { return "LKR " + n; }
+    }
+
+    function updateEstimate(km){
+      const base = 1200;
+      const raw = base + (selectedRate * km);
+      const low = Math.round(raw * 0.92);
+      const high = Math.round(raw * 1.12);
+      estChip.textContent = `Est: ${formatLKR(low)} – ${formatLKR(high)} (≈ ${km} km)`;
+      window.__selectedKm = km;
+    }
+
+    document.getElementById("routes").addEventListener("click", (e) => {
+      const btn = e.target.closest(".route-chip");
+      if(!btn) return;
+      pickup.value = btn.dataset.from;
+      drop.value = btn.dataset.to;
+      setNowPlusMinutes(45);
+      updateEstimate(Number(btn.dataset.km || 0));
+    });
+
+    // Copy booking details
+    function buildBookingText(){
+      const name = document.getElementById("name").value.trim() || "-";
+      const mobile = document.getElementById("mobile").value.trim() || "-";
+      const pax = document.getElementById("pax").value;
+      const notes = document.getElementById("notes").value.trim() || "-";
+      const dt = datetime.value || "-";
+      const from = pickup.value.trim() || "-";
+      const to = drop.value.trim() || "-";
+
+      const modeLabel = mode === "cab" ? "Cab Service" : (mode === "rental" ? "Car Rental" : "Tours");
+      return (
+        `NERO Travels Booking\n` +
+        `Mode: ${modeLabel}\n` +
+        `Vehicle: ${selectedVehicle}\n` +
+        `Pickup: ${from}\n` +
+        `Drop: ${to}\n` +
+        `Pickup Date/Time: ${dt}\n` +
+        `Passengers: ${pax}\n` +
+        `Name: ${name}\n` +
+        `Mobile: ${mobile}\n` +
+        `Notes: ${notes}\n`
+      );
+    }
+
+    document.getElementById("copyDetails").addEventListener("click", async () => {
+      const txt = buildBookingText();
+      try{
+        await navigator.clipboard.writeText(txt);
+        alert("Booking details copied!");
+      } catch(e){
+        alert("Could not copy. Please copy manually:\n\n" + txt);
+      }
+    });
+
+    // Book now -> WhatsApp
+    document.getElementById("bookNow").addEventListener("click", () => {
+      const txt = buildBookingText();
+      const msg = encodeURIComponent("Hello NERO Travels! I want to book.\n\n" + txt + "\nPlease confirm price & availability. Thank you!");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+    });
+
+    // Fleet modal
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const mClose = document.getElementById("mClose");
+    const mTitle = document.getElementById("mTitle");
+    const mName = document.getElementById("mName");
+    const mDesc = document.getElementById("mDesc");
+    const mb1 = document.getElementById("mb1");
+    const mb2 = document.getElementById("mb2");
+    const mb3 = document.getElementById("mb3");
+    const mCopy = document.getElementById("mCopy");
+
+    function openModal(data){
+      mTitle.textContent = "Vehicle Details";
+      mName.textContent = data.name;
+      mDesc.textContent = data.desc;
+      mb1.textContent = data.b1;
+      mb2.textContent = data.b2;
+      mb3.textContent = data.b3;
+      modalBackdrop.style.display = "flex";
+    }
+    function closeModal(){ modalBackdrop.style.display = "none"; }
+    mClose.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", (e)=>{ if(e.target === modalBackdrop) closeModal(); });
+
+    document.getElementById("fleetGrid").addEventListener("click", (e) => {
+      const card = e.target.closest(".car");
+      if(!card) return;
+      const data = {
+        name: card.dataset.name,
+        desc: card.dataset.desc,
+        b1: card.dataset.b1,
+        b2: card.dataset.b2,
+        b3: card.dataset.b3
+      };
+      openModal(data);
+    });
+
+    mCopy.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(mName.textContent);
+        alert("Vehicle name copied!");
+      } catch(e){
+        alert("Could not copy.");
+      }
+    });
+
+    setMode("cab");
+
+    // =========================
+    // GOLD PARTICLES (ROYAL VIBE)
+    // =========================
+    const canvas = document.getElementById("goldParticles");
+    const ctx = canvas.getContext("2d", { alpha: true });
+
+    let W = 0, H = 0, DPR = Math.max(1, window.devicePixelRatio || 1);
+    let particles = [];
+    let running = true;
+
+    function resizeCanvas(){
+      const parent = canvas.parentElement;
+      const rect = parent.getBoundingClientRect();
+      W = Math.floor(rect.width);
+      H = Math.floor(rect.height);
+      canvas.width = Math.floor(W * DPR);
+      canvas.height = Math.floor(H * DPR);
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      // rebuild particles based on size
+      const count = Math.min(140, Math.max(70, Math.floor((W*H) / 12000)));
+      particles = new Array(count).fill(0).map(() => makeParticle(true));
+    }
+
+    function rand(a,b){ return a + Math.random()*(b-a); }
+
+    function makeParticle(initial=false){
+      const p = {
+        x: rand(0, W),
+        y: initial ? rand(0, H) : H + rand(10, 120),
+        r: rand(0.8, 2.2),
+        vy: rand(0.18, 0.65),
+        vx: rand(-0.12, 0.12),
+        a: rand(0.10, 0.55),
+        tw: rand(0.002, 0.012),
+        phase: rand(0, Math.PI*2),
+        glow: rand(6, 16),
+      };
+      return p;
+    }
+
+    function draw(){
+      if(!running) return;
+
+      ctx.clearRect(0,0,W,H);
+
+      // subtle haze
+      ctx.save();
+      ctx.globalAlpha = 0.08;
+      const grd = ctx.createRadialGradient(W*0.3, H*0.2, 30, W*0.3, H*0.2, Math.max(W,H));
+      grd.addColorStop(0, "rgba(241,193,92,0.40)");
+      grd.addColorStop(1, "rgba(241,193,92,0.00)");
+      ctx.fillStyle = grd;
+      ctx.fillRect(0,0,W,H);
+      ctx.restore();
+
+      for(const p of particles){
+        p.phase += p.tw;
+        p.x += p.vx + Math.sin(p.phase)*0.18;
+        p.y -= p.vy;
+
+        if(p.y < -40 || p.x < -60 || p.x > W+60){
+          Object.assign(p, makeParticle(false));
+        }
+
+        // glow dot
+        const alpha = p.a + (Math.sin(p.phase)*0.08);
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(241,193,92,${Math.max(0, Math.min(0.7, alpha))})`;
+        ctx.shadowColor = "rgba(241,193,92,0.55)";
+        ctx.shadowBlur = p.glow;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    // Reduce motion support
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduceMotion){
+      running = false;
+      canvas.style.display = "none";
+    } else {
+      resizeCanvas();
+      draw();
+    }
+
+    window.addEventListener("resize", () => {
+      if(!reduceMotion) resizeCanvas();
+    });
+
+  </script>
+
+</body>
+</html>
